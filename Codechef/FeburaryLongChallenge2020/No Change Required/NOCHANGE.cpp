@@ -1,7 +1,3 @@
-//
-// Created by brijr on 19-2-20.
-//
-
 #include <iostream>
 #include <bits/stdc++.h>
 
