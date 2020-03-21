@@ -18,6 +18,67 @@ public class ${NAME} {
             }
         }
     }
+    
+    static class Pair<F, S>{
+        private final F first; //first member of pair
+        private final S second; //second member of pair
+
+        private Pair(F first, S second) {
+            this.first = first;
+            this.second = second;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+
+            if (o == null || getClass() != o.getClass())
+                return false;
+
+            Pair<? , ?> pair = (Pair<?, ?>) o;
+            if(!first.equals(pair.first))
+                return false;
+            return second.equals(pair.second);
+        }
+
+        @Override
+        public int hashCode() {
+            return 31 * first.hashCode() + second.hashCode();
+        }
+
+        @Override
+        public String toString() {
+            return "(" + first +", "+ second +")";
+        }
+
+
+        public static <F,S> Pair<F,S> of(F a, S b) {
+            return new Pair<>(a,b);
+        }
+        public F getFirst() {
+            return first;
+        }
+
+        public S getSecond() {
+            return second;
+        }
+    }
+    
+    // Comparator for using in Sorting On integers
+    static class PairCompare implements Comparator<Pair<Integer, Integer>> {
+        @Override
+        public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) {
+            int diff = Integer.compare(p1.first, p2.first);
+            if(diff == 0) {
+                return Integer.compare(p1.second, p2.second);
+            }
+            else return diff;
+        }
+    }
+    
+    
 
     public static void main(String[] args) throws IOException {
         //initialize
