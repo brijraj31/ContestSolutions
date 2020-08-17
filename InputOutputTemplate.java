@@ -17,6 +17,7 @@ public class ${NAME} {
             while(t -- > 0) {
                 
             }
+            out.close();
         }
     }
     
